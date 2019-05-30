@@ -8,7 +8,7 @@ tempenv
    :target: https://codecov.io/gh/jeking3/tempenv
 
 tempenv provides a
-`context manager<https://docs.python.org/3/library/contextlib.html>_`
+`context manager <https://docs.python.org/3/library/contextlib.html>_`
 that allows environment variables to be set or unset temporarily
 and returned to their original values at scope end.
 
@@ -45,23 +45,27 @@ Set some environment variables temporarily:
         print(f"USER (inside) = {os.environ.get('USER')}")
     print(f"USER (after ) = {os.environ.get('USER')}")
 
+Then run the code:
+
 .. code:: bash
 
     $ python3 test.py
-    USER (before) = test
+    USER (before) = None
     USER (inside) = nobody
-    USER (after ) = test
+    USER (after ) = None
 
 Changing the value to ``None`` will unset the environment
 variable during the code block:
 
 .. code:: python
 
+    import os
     from tempenv import TemporaryEnvironment
 
+    os.environ["DEBUG"] = "1"
     with TemporaryEnvironment({"DEBUG": None}):
-        # do something
-        pass
+        assert "DEBUG" not in os.environ
+    assert "DEBUG" in os.environ
 
 License
 -------
