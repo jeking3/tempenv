@@ -4,9 +4,9 @@ python: 3.6
 
 install:
   - pip install codecov
-  - pip install requirements/dev
 
 script:
+  - make requirements/dev
   - make test
   - make coverage
 
