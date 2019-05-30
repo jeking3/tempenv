@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 James E. King III
+# Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
 #
 
 .PHONY: clean coverage dist pdb pipclean piplist publish publish-test requirements shell test test-setup

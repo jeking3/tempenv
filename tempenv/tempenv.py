@@ -77,7 +77,7 @@ class TemporaryEnvironment(AbstractContextManager):
             elif ename in os.environ:
                 del os.environ[ename]
 
-    def __exit__(self, *thing):
+    def __exit__(self, *exc):
         """
         Leaving scope.
 

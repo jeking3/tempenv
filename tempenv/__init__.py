@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2019 James E. King III
+# Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
 #
 
 __all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
