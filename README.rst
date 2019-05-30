@@ -4,9 +4,6 @@ tempenv
 .. image:: https://travis-ci.org/jeking3/tempenv.svg?branch=master
    :target: https://travis-ci.org/jeking3/tempenv
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/jeking3/tempenv?branch=master&svg=true
-   :target: https://ci.appveyor.com/project/jeking3/tempenv
-
 .. image:: https://codecov.io/gh/jeking3/tempenv/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/jeking3/tempenv
 
