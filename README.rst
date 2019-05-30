@@ -39,6 +39,7 @@ Set some environment variables temporarily:
         "AWS_SECRET_KEY": "some secret key"
     }):
         # do something
+        pass
 
 Remove an environment variable temporarily:
 
@@ -48,6 +49,7 @@ Remove an environment variable temporarily:
 
     with TemporaryEnvironment({"DEBUG": None}):
         # do something
+        pass
 
 Bugs
 ----
@@ -64,3 +66,4 @@ License
 Released under the Apache Software License, Version 2.0 (see `LICENSE`)::
 
    Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
+
