@@ -1,0 +1,13 @@
+.coverage
+.eggs/
+.pytest_cache/
+.tox/
+**/*.egg-info/
+**/__pycache__/
+**/*.pyc
+**/*.py,cover
+Pipfile
+Pipfile.lock
+build/
+dist/
+pycov/
