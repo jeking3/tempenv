@@ -13,7 +13,7 @@ Developer Overview
 
    * Add the upstream repository::
 
-      git remote add upstream git@github.com:jeking3/networkx.git
+      git remote add upstream git@github.com:jeking3/tempenv.git
 
    * Now, you have remote repositories named:
 
