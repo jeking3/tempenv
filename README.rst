@@ -7,10 +7,12 @@ tempenv
 .. image:: https://codecov.io/gh/jeking3/tempenv/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/jeking3/tempenv
 
-tempenv provides a
-`context manager <https://docs.python.org/3/library/contextlib.html>_`
-that allows environment variables to be set or unset temporarily
-and returned to their original values at scope end.
+Manage environment variables in a temporary scope.
+
+Some products use environment variables as a primary means to supply
+credentials.  To ensure the lifetime of exposed credentials is short,
+wrap them in a TemporaryEnvironment so that they are automatically
+destroyed on scope exit.
 
 You can:
 
