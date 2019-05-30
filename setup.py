@@ -73,7 +73,7 @@ for type in ["run", "setup", "test"]:
 setup(
     name=name,
     version=version(),
-    python_requires=">=3.5",
+    python_requires=">=3.6",
     description=description,
     long_description=read_file(Path("README.rst")),
     long_description_content_type="text/x-rst",
@@ -84,7 +84,6 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Topic :: Security",

@@ -31,10 +31,12 @@ piplist:
 	pip3 list --user --format=columns
 
 publish: dist
+	twine check dist/*
 	twine upload dist/*
 
 publish-test: dist
-	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	twine check dist/*
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 requirements:
 	pip3 install -r requirements/dev
