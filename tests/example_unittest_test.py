@@ -14,9 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
 
-__all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
+from unittest import TestCase
 
-from .version import __version__
-from .tempenv import EnvironmentVariableChangedWarning
-from .tempenv import TemporaryEnvironment
+from tempenv import TemporaryEnvironment
+
+
+class TestDecorator(TestCase):
+    # if you change this test, please update the README
+    @TemporaryEnvironment({"USER": "Crowley"})
+    def test_check(self):
+        assert os.environ.get("USER") == "Crowley"

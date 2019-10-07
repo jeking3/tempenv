@@ -14,9 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# begin
+import os
 
-__all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
+from unittest import TestCase
 
-from .version import __version__
-from .tempenv import EnvironmentVariableChangedWarning
-from .tempenv import TemporaryEnvironment
+from tempenv import TemporaryEnvironment
+
+
+class TestIgnoreOverwrite(TestCase):
+    # if you change this test, please update the README
+    def test_ignored_overwrite_in_context(self):
+        os.environ["FOO"] = "BAR"
+        with TemporaryEnvironment({"FOO": "SAM"}, restore_if_changed=False):
+            os.environ["FOO"] = "DEAN"
+        assert os.environ["FOO"] == "DEAN"
