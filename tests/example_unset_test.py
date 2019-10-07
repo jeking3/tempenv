@@ -14,9 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# begin
+import os
 
-__all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
+from unittest import TestCase
 
-from .version import __version__
-from .tempenv import EnvironmentVariableChangedWarning
-from .tempenv import TemporaryEnvironment
+from tempenv import TemporaryEnvironment
+
+
+class TestUnset(TestCase):
+    # if you change this test, please update the README
+    def test_unset(self):
+        os.environ["DEBUG"] = "1"
+        with TemporaryEnvironment({"DEBUG": None}):
+            assert "DEBUG" not in os.environ
+        assert "DEBUG" in os.environ

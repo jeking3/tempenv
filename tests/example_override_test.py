@@ -14,9 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# begin
+import os
 
-__all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
+from unittest import TestCase
 
-from .version import __version__
-from .tempenv import EnvironmentVariableChangedWarning
-from .tempenv import TemporaryEnvironment
+from tempenv import EnvironmentVariableChangedWarning
+from tempenv import TemporaryEnvironment
+
+
+class TestOverwrite(TestCase):
+    # if you change this test, please update the README
+    def test_overwritten_in_context(self):
+        with self.assertWarnsRegex(EnvironmentVariableChangedWarning, "FOO"):
+            with TemporaryEnvironment({"FOO": "BAR"}):
+                os.environ["FOO"] = "SAM"

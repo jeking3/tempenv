@@ -96,3 +96,17 @@ class TemporaryEnvironment(AbstractContextManager):
                     os.environ[ename] = ovalue
                 else:
                     del os.environ[ename]
+
+    def __call__(self, f):
+        """
+        Set temporary environment variables as a decorator.
+        """
+
+        def wrapped_f(*args, **kwargs):
+            try:
+                self.__enter__()
+                f(*args, **kwargs)
+            finally:
+                self.__exit__(None)
+
+        return wrapped_f

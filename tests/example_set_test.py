@@ -14,9 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
 
-__all__ = ["__version__", "EnvironmentVariableChangedWarning", "TemporaryEnvironment"]
+from unittest import TestCase
 
-from .version import __version__
-from .tempenv import EnvironmentVariableChangedWarning
-from .tempenv import TemporaryEnvironment
+from tempenv import TemporaryEnvironment
+
+
+class TestSet(TestCase):
+    # if you change this test, please update the README
+    def test_set(self):
+        user_before = os.environ.get("USER")
+        with TemporaryEnvironment({"USER": "nobody", "OTHER": "foo"}):
+            assert os.environ.get("USER") == "nobody"
+            assert os.environ.get("OTHER") == "foo"
+        assert os.environ.get("USER") == user_before

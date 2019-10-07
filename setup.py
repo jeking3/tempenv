@@ -75,8 +75,8 @@ setup(
     version=version(),
     python_requires=">=3.6",
     description=description,
-    long_description=read_file(Path("README.rst")),
-    long_description_content_type="text/x-rst",
+    long_description=read_file(Path("README.md")),
+    long_description_content_type="text/markdown",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
