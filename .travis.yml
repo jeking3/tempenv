@@ -3,10 +3,25 @@ language: python
 python: 3.6
 
 install:
-  - pip install codecov tox
+  - pip install codecov -rrequirements/dev.txt
 
-script:
-  - make coverage
+stages:
+  - name: test
+    if: (type = 'pull_request' or type = 'api')
 
-after_success:
-  - codecov
+  - name: publish
+    if: >-
+      (type = "push" OR type = "api") AND
+      (tag~ =~
+       /^v((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$/)
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - make coverage
+        - codecov
+
+    - stage: publish
+      script:
+        - make publish

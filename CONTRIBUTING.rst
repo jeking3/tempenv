@@ -23,10 +23,10 @@ Developer Overview
 2. Install development prerequisites:
 
    * The required local packages for development are listed in the
-     file ``requirements/dev``.  This command will install them
+     file ``requirements/dev.txt``.  This command will install them
      locally::
 
-      make requirements
+      make prerequisites
 
 3. Develop your contribution:
 

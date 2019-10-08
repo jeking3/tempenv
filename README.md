@@ -22,7 +22,7 @@ You can:
 
 Install the latest version of tempenv:
 
-```bash
+```
     pip install tempenv
 ```
 
@@ -31,7 +31,7 @@ Install the latest version of tempenv:
 Set some environment variables temporarily
 (see [example_set_test.py](tests/example_set_test.py)):
 
-```python
+```
     def test_set(self):
         user_before = os.environ.get("USER")
         with TemporaryEnvironment({"USER": "nobody", "OTHER": "foo"}):
@@ -44,7 +44,7 @@ Changing the value to ``None`` will unset the environment variable during
 the code block
 (see [example_unset_test.py](tests/example_unset_test.py)):
 
-```python
+```
     def test_unset(self):
         os.environ["DEBUG"] = "1"
         with TemporaryEnvironment({"DEBUG": None}):
@@ -56,7 +56,7 @@ Changing a temporary environment variable during the scope will cause a
 warning
 (see [example_overwrite_test.py](tests/example_overwrite_test.py)):
 
-```python
+```
     def test_overwritten_in_context(self):
         with self.assertWarnsRegex(EnvironmentVariableChangedWarning, "FOO"):
             with TemporaryEnvironment({"FOO": "BAR"}):
@@ -68,7 +68,7 @@ during the scope of the TemporaryEnvironment will not issue a warning and will
 not restore to the original value
 (see [example_ignore_test.py](tests/example_ignore_test.py)):
 
-```python
+```
     def test_ignored_overwrite_in_context(self):
         os.environ["FOO"] = "BAR"
         with TemporaryEnvironment({"FOO": "SAM"}, restore_if_changed=False):
@@ -79,7 +79,7 @@ not restore to the original value
 You can use TemporaryEnvironment in a unittest scope as follows
 (see [example_unittest_test.py](tests/example_unittest_test.py)):
 
-```python
+```
     @TemporaryEnvironment({"USER": "Crowley"})
     def test_check(self):
         assert os.environ.get("USER") == "Crowley"
