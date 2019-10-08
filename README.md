@@ -1,5 +1,6 @@
 # tempenv
 
+[![pypi](https://img.shields.io/pypi/v/tempenv.svg)](https://pypi.python.org/pypi/tempenv)
 [![Build Status](https://travis-ci.org/jeking3/tempenv.svg?branch=master)](https://travis-ci.org/jeking3/tempenv)
 [![codecov](https://codecov.io/gh/jeking3/tempenv/branch/master/graph/badge.svg)](https://codecov.io/gh/jeking3/tempenv)
 
