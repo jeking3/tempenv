@@ -40,7 +40,7 @@ def get_requirements(name: str) -> list:
     Returns:
       - a list of requirements
     """
-    return read_file(Path(f"requirements/{name}")).splitlines()
+    return read_file(Path(f"requirements/{name}.txt")).splitlines()
 
 
 def read_file(path: Path) -> str:
@@ -67,7 +67,7 @@ def version():
 
 
 requirements = {}
-for type in ["run", "setup", "test"]:
+for type in ["run", "test"]:
     requirements[type] = get_requirements(type)
 
 setup(
@@ -97,7 +97,6 @@ setup(
     author_email="jking@apache.org",
     license="Apache License 2.0",
     install_requires=requirements["run"],
-    setup_requires=requirements["setup"],
     tests_require=requirements["test"],
     test_suite="unittest",
     packages=packages,

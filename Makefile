@@ -1,6 +1,18 @@
 #
 # Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
 #
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 .PHONY: clean coverage dist pdb pipclean piplist publish publish-test requirements shell test test-setup
 
@@ -17,7 +29,7 @@ clean:
 coverage:
 	tox -e coverage
 
-dist: clean coverage
+dist: clean
 	python3 setup.py sdist bdist_wheel
 
 pdb:
@@ -32,14 +44,14 @@ piplist:
 
 publish: dist
 	twine check dist/*
-	twine upload dist/*
+	twine upload --username ${PYPI_USERNAME} --password ${PYPI_PASSWORD} dist/*
 
 publish-test: dist
 	twine check dist/*
-	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	twine upload --username ${PYPI_USERNAME} --password ${PYPI_PASSWORD} --repository-url https://test.pypi.org/legacy/ dist/*
 
-requirements:
-	pip3 install -r requirements/dev
+prerequisites:
+	pip3 install -r requirements/dev.txt
 	pre-commit install
 
 shell:

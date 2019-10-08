@@ -1,0 +1,6 @@
+pre-commit (~= 1.18)
+readme_renderer (~= 24.0)
+setuptools (>= 41.4)
+tox (~= 3.14)
+twine (~= 1.11)
+wheel (~= 0.33)
