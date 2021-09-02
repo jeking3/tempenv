@@ -9,5 +9,6 @@
 Pipfile
 Pipfile.lock
 build/
+coverage.xml
 dist/
 pycov/

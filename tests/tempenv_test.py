@@ -38,25 +38,25 @@ class TestTemporaryEnvironment(TestCase):
             self.assertEqual(os.environ.get(f"_TTE_{i}"), expect[self.slot(i)])
 
     def test_create(self):
-        """ Test temporarily setting an envvar. """
+        """Test temporarily setting an envvar."""
         with TemporaryEnvironment({"_TTE_4": "4"}):
             self.check(["1", "2", "3", "4"])
         self.check()
 
     def test_overwrite(self):
-        """ Test overwriting an existing envvar. """
+        """Test overwriting an existing envvar."""
         with TemporaryEnvironment({"_TTE_2": "20"}):
             self.check(["1", "20", "3", None])
         self.check()
 
     def test_delete_existing(self):
-        """ Test removing an existing envvar. """
+        """Test removing an existing envvar."""
         with TemporaryEnvironment({"_TTE_2": None}):
             self.check(["1", None, "3", None])
         self.check()
 
     def test_delete_not_existing(self):
-        """ Test removing a non-existant envvar. """
+        """Test removing a non-existant envvar."""
         self.assertNotIn("_NONEXIST", os.environ)
         with TemporaryEnvironment({"_NONEXIST": None}):
             self.assertNotIn("_NONEXIST", os.environ)
@@ -65,7 +65,7 @@ class TestTemporaryEnvironment(TestCase):
         self.check()
 
     def test_overwritten_in_context(self):
-        """ Test detection of overwritten value in context. """
+        """Test detection of overwritten value in context."""
         with warnings.catch_warnings(record=True) as w:
             warnings.simplefilter("always")
             with TemporaryEnvironment({"_TTE_2": "20"}):
@@ -77,7 +77,7 @@ class TestTemporaryEnvironment(TestCase):
             self.assertIn("_TTE_2", str(w[-1].message))
 
     def test_overwritten_no_restore(self):
-        """ Test handling of non-restore if overwritten. """
+        """Test handling of non-restore if overwritten."""
         with TemporaryEnvironment({"_TTE_2": "20"}, restore_if_changed=False):
             self.check(["1", "20", "3", None])
             os.environ["_TTE_2"] = "200"

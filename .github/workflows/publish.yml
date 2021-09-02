@@ -1,0 +1,24 @@
+#
+# Copyright (C) 2019 - 2021 James E. King III (@jeking3) <jking@apache.org>
+#
+---
+name: Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: "Publish to pypi"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - run: pip install -rrequirements/dev.txt
+      - run: make publish
+        env:
+          PYPI_USERNAME: ${{ PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ PYPI_PASSWORD }}

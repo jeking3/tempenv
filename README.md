@@ -1,8 +1,8 @@
 # tempenv
 
 [![pypi](https://img.shields.io/pypi/v/tempenv.svg)](https://pypi.python.org/pypi/tempenv)
-[![Build Status](https://travis-ci.org/jeking3/tempenv.svg?branch=master)](https://travis-ci.org/jeking3/tempenv)
-[![codecov](https://codecov.io/gh/jeking3/tempenv/branch/master/graph/badge.svg)](https://codecov.io/gh/jeking3/tempenv)
+[![Build Status](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)](https://github.com/jeking3/tempenv/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/jeking3/tempenv/branch/main/graph/badge.svg)](https://codecov.io/gh/jeking3/tempenv)
 
 Manage environment variables in a temporary scope.
 
@@ -95,17 +95,6 @@ Released under the Apache Software License, Version 2.0 (see `LICENSE`):
 ```
    Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
 ```
-
-## History
-
-### v0.2.0
-
-- Added decorator support.
-- Updated README with more examples.
-
-### v0.1.0
-
-- Initial release.
 
 ## Bugs
 

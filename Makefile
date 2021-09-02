@@ -17,9 +17,11 @@
 .PHONY: clean coverage dist pdb pipclean piplist publish publish-test requirements shell test test-setup
 
 clean:
+	@rm -f .coverage
 	@rm -rf .eggs
 	@rm -rf .tox
 	@rm -rf build
+	@rm -f coverage.xml
 	@rm -rf tempenv*.egg-info
 	@rm -rf dist
 	@find . -name '*.py,cover' | xargs rm -f
