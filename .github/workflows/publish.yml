@@ -20,5 +20,5 @@ jobs:
       - run: pip install -rrequirements/dev.txt
       - run: make publish
         env:
-          PYPI_USERNAME: ${{ PYPI_USERNAME }}
-          PYPI_PASSWORD: ${{ PYPI_PASSWORD }}
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
