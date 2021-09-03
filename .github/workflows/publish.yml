@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.9"
       - run: pip install -rrequirements/dev.txt
-      - env:
+      - run: make publish
+        env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: make publish
