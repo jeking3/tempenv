@@ -94,7 +94,7 @@ def test_check(self):
 Released under the Apache Software License, Version 2.0 (see `LICENSE`):
 
 ```
-   Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
+   Copyright (C) 2019 - 2021 James E. King III (@jeking3) <jking@apache.org>
 ```
 
 ## Bugs
