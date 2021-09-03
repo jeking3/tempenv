@@ -1,8 +1,9 @@
 # tempenv
 
-[![pypi](https://img.shields.io/pypi/v/tempenv.svg)](https://pypi.python.org/pypi/tempenv)
 [![Build Status](https://github.com/jeking3/tempenv/actions/workflows/ci.yml/badge.svg)](https://github.com/jeking3/tempenv/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/jeking3/tempenv/branch/main/graph/badge.svg)](https://codecov.io/gh/jeking3/tempenv)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![codecov](https://codecov.io/gh/jeking3/tempenv/branch/main/graphk/badge.svg)](https://codecov.io/gh/jeking3/tempenv)
+[![pypi](https://img.shields.io/pypi/v/tempenv.svg)](https://pypi.python.org/pypi/tempenv)
 
 Manage environment variables in a temporary scope.
 
