@@ -88,9 +88,11 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Security",
         "Topic :: System :: Shells",
         "Topic :: Utilities",
+        "Typing :: Typed",
     ],
     keywords="temporary, environment variable, context manager, test, testing",
     download_url="https://github.com/jeking3/tempenv/archive/main.zip",
@@ -103,4 +105,5 @@ setup(
     test_suite="unittest",
     packages=packages,
     include_package_data=True,
+    package_data={"tempenv": ["py.typed"]},
 )
