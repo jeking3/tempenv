@@ -19,6 +19,7 @@ import warnings
 
 from contextlib import AbstractContextManager
 from typing import Dict
+from typing import Optional
 
 
 class EnvironmentVariableChangedWarning(ResourceWarning):
@@ -61,7 +62,9 @@ class TemporaryEnvironment(AbstractContextManager):
         self.restore_if_changed = restore_if_changed
 
         # internals
-        self._originals = {}  # key: envvar name, value: string or None (not there)
+        self._originals: Dict[
+            str, Optional[str]
+        ] = {}  # key: envvar name, value: string or None (not there)
 
     def __enter__(self):
         """
