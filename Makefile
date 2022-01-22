@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2022 James E. King III (@jeking3) <jking@apache.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,6 +33,9 @@ coverage:
 
 dist: clean
 	python3 setup.py sdist bdist_wheel
+
+outdated:
+	tox -e outdated
 
 pdb:
 	tox -- --pdb

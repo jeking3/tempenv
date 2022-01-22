@@ -10,12 +10,12 @@ repos:
           - "--separate-relative"
 
   - repo: https://github.com/ambv/black
-    rev: 21.9b0
+    rev: 21.12b0
     hooks:
       - id: black
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: requirements-txt-fixer
       - id: trailing-whitespace
@@ -44,7 +44,7 @@ repos:
           - "--strict"
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.910-1
+    rev: v0.931
     hooks:
       - id: mypy
         additional_dependencies:

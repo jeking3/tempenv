@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2022 James E. King III (@jeking3) <jking@apache.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ for type in ["run", "test"]:
 setup(
     name=name,
     version=version(),
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     description=description,
     long_description=read_file(Path("README.md")),
     long_description_content_type="text/markdown",
@@ -84,7 +84,6 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
