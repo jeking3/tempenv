@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2019 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2022 James E. King III (@jeking3) <jking@apache.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 import os
 import warnings
 
-from contextlib import AbstractContextManager
+from contextlib import ContextDecorator
 from typing import Dict
 from typing import Optional
 
@@ -31,7 +31,7 @@ class EnvironmentVariableChangedWarning(ResourceWarning):
     pass
 
 
-class TemporaryEnvironment(AbstractContextManager):
+class TemporaryEnvironment(ContextDecorator):
     """
     Manages a temporary environment.
 
@@ -43,7 +43,9 @@ class TemporaryEnvironment(AbstractContextManager):
     by the context being managed, a warning is issued.
     """
 
-    def __init__(self, directives: Dict[str, str], restore_if_changed: bool = True):
+    def __init__(
+        self, directives: Dict[str, Optional[str]], restore_if_changed: bool = True
+    ) -> None:
         """
         Initializer.
 
@@ -66,7 +68,7 @@ class TemporaryEnvironment(AbstractContextManager):
             str, Optional[str]
         ] = {}  # key: envvar name, value: string or None (not there)
 
-    def __enter__(self):
+    def __enter__(self) -> None:
         """
         Entering scope.
 
@@ -80,7 +82,7 @@ class TemporaryEnvironment(AbstractContextManager):
             elif ename in os.environ:
                 del os.environ[ename]
 
-    def __exit__(self, *exc):
+    def __exit__(self, *exc) -> None:
         """
         Leaving scope.
 
@@ -99,17 +101,3 @@ class TemporaryEnvironment(AbstractContextManager):
                     os.environ[ename] = ovalue
                 else:
                     del os.environ[ename]
-
-    def __call__(self, f):
-        """
-        Set temporary environment variables as a decorator.
-        """
-
-        def wrapped_f(*args, **kwargs):
-            try:
-                self.__enter__()
-                f(*args, **kwargs)
-            finally:
-                self.__exit__(None)
-
-        return wrapped_f
