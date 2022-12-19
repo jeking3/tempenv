@@ -1,2 +1,2 @@
-coverage (~= 6.2)
+coverage (~= 7.0)
 pytest (~= 6.2.5)
