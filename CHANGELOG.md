@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0]
+
+- dropped python 3.7 and 3.8 (ci tests 3.9 through 3.13)
+- updated dev and test dependencies (still no runtime dependencies)
+- updated setup.py constructs
+
+## [2.0.0]
+
+- convert to using ContextDecorator @jeking3 in #22
+- fixed incorrect type on initializer (value was not optional)
+- dropped python 3.6 support (ci tests 3.7 through 3.10)
+- update dev and test dependencies (still no runtime dependencies)
+
 ## [1.1.0]
 
 ### Changed

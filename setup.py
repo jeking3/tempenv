@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2019 - 2022 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2025 James E. King III (@jeking3) <jking@apache.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -67,13 +67,13 @@ def version():
 
 
 requirements = {}
-for type in ["run", "test"]:
+for type in ["dev", "run", "test"]:
     requirements[type] = get_requirements(type)
 
 setup(
     name=name,
     version=version(),
-    python_requires=">=3.7",
+    python_requires=">=3.9",
     description=description,
     long_description=read_file(Path("README.md")),
     long_description_content_type="text/markdown",
@@ -84,10 +84,11 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Topic :: Security",
         "Topic :: System :: Shells",
         "Topic :: Utilities",
@@ -100,8 +101,10 @@ setup(
     author_email="jking@apache.org",
     license="Apache License 2.0",
     install_requires=requirements["run"],
-    tests_require=requirements["test"],
-    test_suite="unittest",
+    extras_require={
+        "dev": requirements["dev"],
+        "test": requirements["test"],
+    },
     packages=packages,
     include_package_data=True,
     package_data={"tempenv": ["py.typed"]},

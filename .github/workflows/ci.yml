@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 - 2022 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2025 James E. King III (@jeking3) <jking@apache.org>
 #
 ---
 name: CI
@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - fix/ci
   pull_request:
     branches:
       - main
@@ -16,19 +17,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version:
-          - "3.7"
-          - "3.8"
           - "3.9"
           - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
     name: "test on ${{ matrix.python-version }}"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -rrequirements/dev.txt
       - run: make coverage
-      - uses: codecov/codecov-action@v2
-        if: "${{ matrix.python-version == '3.9' }}"
+      - uses: codecov/codecov-action@v5
+        if: "${{ matrix.python-version == '3.12' }}"
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
