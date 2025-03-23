@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 - 2021 James E. King III (@jeking3) <jking@apache.org>
+# Copyright (C) 2019 - 2025 James E. King III (@jeking3) <jking@apache.org>
 #
 ---
 name: Publish
@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     name: "Publish to pypi"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.9"
       - run: pip install -rrequirements/dev.txt
