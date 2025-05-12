@@ -1,7 +1,7 @@
 pip-outdated (~= 0.7.0)
 pre-commit (~= 4.2.0)
 readme_renderer (~= 44.0)
-setuptools (~= 72.1)
+setuptools (~= 80.4)
 tox (~= 4.25.0)
 twine (~= 6.1.0)
 wheel (~= 0.45.1)
