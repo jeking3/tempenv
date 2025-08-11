@@ -1,4 +1,4 @@
-pip-outdated (~= 0.7.0)
+pip-outdated (~= 0.8.0)
 pre-commit (~= 4.2.0)
 readme_renderer (~= 44.0)
 setuptools (~= 72.1)
